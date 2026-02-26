@@ -1,7 +1,7 @@
 {
   "name": "tiny-escape",
   "version": "1.0.0",
-  "description": "Modern escape-string-regexp replacement — escape special regex characters. TypeScript, ESM + CJS, zero dependencies, ~120B.",
+  "description": "Escape special characters for use in regular expressions. Like escape-string-regexp, ships ESM + CJS.",
   "type": "module",
   "exports": {
     ".": {

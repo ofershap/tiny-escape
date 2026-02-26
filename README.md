@@ -5,34 +5,19 @@
 [![CI](https://github.com/ofershap/tiny-escape/actions/workflows/ci.yml/badge.svg)](https://github.com/ofershap/tiny-escape/actions/workflows/ci.yml)
 [![TypeScript](https://img.shields.io/badge/TypeScript-strict-blue.svg)](https://www.typescriptlang.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Bundle size](https://img.shields.io/badge/gzip-201_B-brightgreen)](https://github.com/ofershap/tiny-escape)
-[![Zero dependencies](https://img.shields.io/badge/dependencies-0-brightgreen)](https://github.com/ofershap/tiny-escape)
 
-Drop-in replacement for [`escape-string-regexp`](https://github.com/sindresorhus/escape-string-regexp) that works in both ESM and CommonJS.
+Escape special characters in a string for use in a regular expression. Same behavior as [`escape-string-regexp`](https://github.com/sindresorhus/escape-string-regexp), but ships both ESM and CJS.
 
 ```ts
 import { escapeRegExp } from "tiny-escape";
 
 const input = "price is $5.00 (USD)";
-const re = new RegExp(escapeRegExp(input));
-re.test(input); // true
+new RegExp(escapeRegExp(input)).test(input); // true
 ```
 
-> Zero dependencies. 201 bytes gzipped. ESM + CJS dual export — no more pinning to v4.
+> 201 bytes gzipped. Zero dependencies.
 
 ![Demo](assets/demo.gif)
-
-## Why tiny-escape?
-
-[`escape-string-regexp`](https://github.com/sindresorhus/escape-string-regexp) has 163M weekly downloads but went ESM-only in v5, forcing many projects to pin v4. It hasn't been updated in 3 years. `tiny-escape` ships both ESM and CJS with native TypeScript types.
-
-|             | `escape-string-regexp` | `tiny-escape` |
-| ----------- | ---------------------- | ------------- |
-| CJS support | v4 only (v5 ESM-only)  | ESM + CJS     |
-| TypeScript  | native (v5)            | native        |
-| Maintenance | inactive (3 years)     | active        |
-| API         | default export         | named export  |
-| Size (gzip) | ~210B                  | 201B          |
 
 ## Install
 
@@ -55,13 +40,13 @@ const re = new RegExp(escapeRegExp(userInput), "i");
 re.test(userInput); // true
 ```
 
-## API
+## Differences from `escape-string-regexp`
 
-### `escapeRegExp(string: string): string`
-
-Escapes all characters with special meaning in regular expressions: `| \ { } ( ) [ ] ^ $ + * ? .` and `-`.
-
-Throws `TypeError` if the input is not a string.
+|             | `escape-string-regexp` | `tiny-escape` |
+| ----------- | ---------------------- | ------------- |
+| CJS support | v4 only (v5 ESM-only)  | ESM + CJS     |
+| TypeScript  | native (v5)            | native        |
+| Export      | default                | named         |
 
 ## Migrating from escape-string-regexp
 
@@ -71,6 +56,14 @@ Throws `TypeError` if the input is not a string.
 + import { escapeRegExp } from "tiny-escape";
 + const escaped = escapeRegExp(input);
 ```
+
+## API
+
+### `escapeRegExp(string: string): string`
+
+Escapes `| \ { } ( ) [ ] ^ $ + * ? .` and `-`.
+
+Throws `TypeError` if the input is not a string.
 
 ## Author
 
