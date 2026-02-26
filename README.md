@@ -8,7 +8,7 @@
 [![Bundle size](https://img.shields.io/badge/gzip-201_B-brightgreen)](https://github.com/ofershap/tiny-escape)
 [![Zero dependencies](https://img.shields.io/badge/dependencies-0-brightgreen)](https://github.com/ofershap/tiny-escape)
 
-Escape special characters in a string for use in a regular expression. A modern, type-safe replacement for [`escape-string-regexp`](https://github.com/sindresorhus/escape-string-regexp).
+Drop-in replacement for [`escape-string-regexp`](https://github.com/sindresorhus/escape-string-regexp) that works in both ESM and CommonJS.
 
 ```ts
 import { escapeRegExp } from "tiny-escape";
@@ -18,11 +18,13 @@ const re = new RegExp(escapeRegExp(input));
 re.test(input); // true
 ```
 
-> Native TypeScript. ESM + CJS dual export. Zero dependencies. 201 bytes gzipped.
+> Zero dependencies. 201 bytes gzipped. ESM + CJS dual export — no more pinning to v4.
+
+![Demo](assets/demo.gif)
 
 ## Why tiny-escape?
 
-[`escape-string-regexp`](https://github.com/sindresorhus/escape-string-regexp) has 163M weekly downloads but hasn't been updated in 3 years. Version 5 went ESM-only, breaking CommonJS consumers and forcing many projects to pin v4. `tiny-escape` ships both ESM and CJS with native TypeScript types.
+[`escape-string-regexp`](https://github.com/sindresorhus/escape-string-regexp) has 163M weekly downloads but went ESM-only in v5, forcing many projects to pin v4. It hasn't been updated in 3 years. `tiny-escape` ships both ESM and CJS with native TypeScript types.
 
 |             | `escape-string-regexp` | `tiny-escape` |
 | ----------- | ---------------------- | ------------- |
@@ -30,6 +32,7 @@ re.test(input); // true
 | TypeScript  | native (v5)            | native        |
 | Maintenance | inactive (3 years)     | active        |
 | API         | default export         | named export  |
+| Size (gzip) | ~210B                  | 201B          |
 
 ## Install
 
@@ -47,7 +50,6 @@ escapeRegExp("[test] (1+1)"); // "\\[test\\] \\(1\\+1\\)"
 escapeRegExp("foo|bar"); // "foo\\|bar"
 escapeRegExp("a-b"); // "a\\x2db"
 
-// Use in RegExp constructor
 const userInput = "How much $ for mass?";
 const re = new RegExp(escapeRegExp(userInput), "i");
 re.test(userInput); // true
@@ -79,4 +81,4 @@ Throws `TypeError` if the input is not a string.
 
 ## License
 
-MIT
+[MIT](LICENSE) &copy; [Ofer Shapira](https://github.com/ofershap)

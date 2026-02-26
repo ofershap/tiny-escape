@@ -67,9 +67,10 @@
     "regex",
     "regexp",
     "regular-expression",
+    "escape-string-regexp",
     "string",
     "sanitize",
-    "tiny",
+    "drop-in-replacement",
     "typescript",
     "esm",
     "zero-dependency"
