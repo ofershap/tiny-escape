@@ -24,12 +24,12 @@ re.test(input); // true
 
 [`escape-string-regexp`](https://github.com/sindresorhus/escape-string-regexp) has 163M weekly downloads but hasn't been updated in 3 years. Version 5 went ESM-only, breaking CommonJS consumers and forcing many projects to pin v4. `tiny-escape` ships both ESM and CJS with native TypeScript types.
 
-| | `escape-string-regexp` | `tiny-escape` |
-|---|---|---|
-| CJS support | v4 only (v5 ESM-only) | ESM + CJS |
-| TypeScript | native (v5) | native |
-| Maintenance | inactive (3 years) | active |
-| API | default export | named export |
+|             | `escape-string-regexp` | `tiny-escape` |
+| ----------- | ---------------------- | ------------- |
+| CJS support | v4 only (v5 ESM-only)  | ESM + CJS     |
+| TypeScript  | native (v5)            | native        |
+| Maintenance | inactive (3 years)     | active        |
+| API         | default export         | named export  |
 
 ## Install
 
@@ -42,10 +42,10 @@ npm install tiny-escape
 ```ts
 import { escapeRegExp } from "tiny-escape";
 
-escapeRegExp("hello.world");           // "hello\\.world"
-escapeRegExp("[test] (1+1)");          // "\\[test\\] \\(1\\+1\\)"
-escapeRegExp("foo|bar");               // "foo\\|bar"
-escapeRegExp("a-b");                   // "a\\x2db"
+escapeRegExp("hello.world"); // "hello\\.world"
+escapeRegExp("[test] (1+1)"); // "\\[test\\] \\(1\\+1\\)"
+escapeRegExp("foo|bar"); // "foo\\|bar"
+escapeRegExp("a-b"); // "a\\x2db"
 
 // Use in RegExp constructor
 const userInput = "How much $ for mass?";
