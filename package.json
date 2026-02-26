@@ -1,6 +1,6 @@
 {
   "name": "tiny-escape",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Escape special characters for use in regular expressions. Like escape-string-regexp, ships ESM + CJS.",
   "type": "module",
   "exports": {
@@ -70,9 +70,12 @@
     "escape-string-regexp",
     "string",
     "sanitize",
-    "drop-in-replacement",
+    "commonjs",
+    "dual-package",
+    "err-require-esm",
     "typescript",
     "esm",
+    "cjs",
     "zero-dependency"
   ],
   "author": "Ofer Shapira <ofer@ofershap.dev>",

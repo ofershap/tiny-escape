@@ -42,6 +42,8 @@ re.test(userInput); // true
 
 ## Differences from `escape-string-regexp`
 
+`escape-string-regexp` v5 is ESM-only. If you `require("escape-string-regexp")` you get `ERR_REQUIRE_ESM`. `tiny-escape` works with both `import` and `require()`.
+
 |             | `escape-string-regexp` | `tiny-escape` |
 | ----------- | ---------------------- | ------------- |
 | CJS support | v4 only (v5 ESM-only)  | ESM + CJS     |
