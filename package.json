@@ -1,6 +1,6 @@
 {
   "name": "tiny-escape",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "Escape special characters for use in regular expressions. Like escape-string-regexp, ships ESM + CJS.",
   "type": "module",
   "exports": {
@@ -22,7 +22,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "tsup",
+    "build": "tsup && node -e \"let f=require('fs'),p='dist/index.cjs',c=f.readFileSync(p,'utf8');c+='\\nmodule.exports=Object.assign(exports.default,exports);delete module.exports.default;';f.writeFileSync(p,c)\"",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:watch": "vitest",
